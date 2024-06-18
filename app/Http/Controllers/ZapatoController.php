@@ -83,15 +83,18 @@ class ZapatoController extends Controller
     */
    public function update(Request $request, Zapato $zapato)
    {
-       $validated = $request->validate([
-           'nombre' => 'required|max:255',
-       ]);
+    $validated = $request->validate([
+        'codigo' => 'required|max:13',
+        'denominacion' => 'required|max:255',
+        'precio' => 'required',
+    ]);
 
-
-       $zapato->nombre = $validated['nombre'];
-       $zapato->save();
-       session()->flash('success', 'El zapato se ha editado correctamente.');
-       return redirect()->route('zapatos.index');
+    $zapato->codigo = $validated['codigo'];
+    $zapato->denominacion = $validated['denominacion'];
+    $zapato->precio = $validated['precio'];
+    $zapato->save();
+    session()->flash('success', 'El zapato se ha creado correctamente.');
+    return redirect()->route('zapatos.index');
    }
 
 

@@ -34,9 +34,10 @@
                         </th>
 
                         <td class="px-6 py-4">
-                            <a href="{{ route('zapatos.edit', ['zapato' => $zapato]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                            <a href="{{ route('carritos.create', ['zapato' => $zapato]) }}"
+                                class="font-medium text-green-600 dark:text-green-500 hover:underline">
                                 <x-primary-button>
-                                    Editar
+                                    Añadir al carrito
                                 </x-primary-button>
                             </a>
                         </td>

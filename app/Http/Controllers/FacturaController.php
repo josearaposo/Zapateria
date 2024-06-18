@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFacturaRequest;
 use App\Http\Requests\UpdateFacturaRequest;
 use App\Models\Factura;
+use Illuminate\Support\Facades\Auth;
 
 class FacturaController extends Controller
 {
@@ -13,7 +14,9 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        //
+        return view('facturas.index', [
+            'facturas' => Auth::user()->facturas,
+        ]);
     }
 
     /**
